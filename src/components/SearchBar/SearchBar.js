@@ -14,20 +14,7 @@ const [currentSortByValue, setCurrentSortByValue]=useState('best_match');
       id:'rating'
   },{name:'Most Reviewed',
       id: 'review_count'
-    }]
-    const renderSortByOptions=()=> {
-        return Object.keys(sortByOptions).map(sortByOption => {
-            let sortByOptionValue = sortByOptions[sortByOption];
-            return (
-            <li key={sortByOptionValue.id}
-                className={currentSortByValue===sortByOptionValue.id?
-            'active':''}
-                onClick={()=>setCurrentSortByValue(sortByOptionValue.id)}>
-                {sortByOption.name}
-            </li>
-            );
-        })
-  }
+    }];
 
   const handleSearch = (event) => {
       props.searchYelp(searchCuisine, searchLocation, currentSortByValue)
@@ -38,15 +25,27 @@ const [currentSortByValue, setCurrentSortByValue]=useState('best_match');
         <div className="SearchBar" >
             <div className="SearchBar-sort-options">
                 <ul>
-                    {renderSortByOptions()}
+                    {sortByOptions.map(sortByOption => (
+                            <li key={sortByOption.id}
+                                className={currentSortByValue===sortByOption.id?
+                                    'active':''}
+                                onClick={()=>setCurrentSortByValue(sortByOption.id)}>
+                                {sortByOption.name}
+                            </li>
+                        ))}
                 </ul>
             </div>
             <div className="SearchBar-fields">
-                <input placeholder="Search Businesses" onChange={(event)=>setSearchCusine(event.target.value)}/>
-                <input placeholder="Where?" onChange={(event)=>setSearchLocation(event.target.value)}/>
+                <input placeholder="Search Businesses"
+                       onChange={(event)=>setSearchCusine(event.target.value)}/>
+                <input placeholder="Where?"
+                       onChange={(event)=>setSearchLocation(event.target.value)}/>
             </div>
             <div className="SearchBar-submit">
-                <button onClick={(event)=>handleSearch(event)}>Let's Go</button>
+                <button
+                    onClick={(event)=>handleSearch(event)}>
+                    {'Let\'s Go'}
+                </button>
             </div>
         </div>
     );
