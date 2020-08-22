@@ -1,0 +1,8 @@
+.SearchQuery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-repeat: no-repeat;
+    height: 25rem;
+  }
+  
