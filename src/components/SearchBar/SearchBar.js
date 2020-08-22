@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './SearchBar.css';
 
 
@@ -17,9 +17,35 @@ const [currentSortByValue, setCurrentSortByValue]=useState('best_match');
     }];
 
   const handleSearch = (event) => {
+      props.searching(true)
+      props.searchQuery({
+          term:searchCuisine,
+          location:searchLocation,
+          sortBy:currentSortByValue
+      })
       props.searchYelp(searchCuisine, searchLocation, currentSortByValue)
       event.preventDefault();
+      cleanUp()
   }
+  const cleanUp = () => {
+      setSearchLocation('')
+      setSearchCusine('')
+      window.removeEventListener('keypress', (event)=>handleEnter(event))
+
+  } ;
+  const handleEnter = (event) => {
+          if(event.key === 'Enter') {
+              handleSearch(event)}
+  }
+
+  useEffect(()=>{
+
+      if(searchCuisine.length>2 && searchLocation.length>2){
+          window.addEventListener('keypress', (event)=>handleEnter(event))
+      }
+      // eslint-disable-next-line
+  },[searchCuisine, searchLocation])
+
 
     return (
         <div className="SearchBar" >
