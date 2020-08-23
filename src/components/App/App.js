@@ -18,21 +18,12 @@ const [searching, setSearching]=useState(false);
 const [validSearchQuery, setValidSearchQuery]=useState(false);
 
 
-  const searchYelp=( term , location , sortBy )=>{
-      Yelp.search(term, location, sortBy).then((value)=>{
-          if(value === null)
-          {
-              setValidSearchQuery(false)
-              setResponse(true)
-              return;
-
-          }
-          else{
-              setResponse(true)
-              setValidSearchQuery(true)
-              setResults(value)}
+  const searchYelp=( term , location , sortBy )=> {
+      Yelp.search(term, location, sortBy, (input) => setValidSearchQuery(input)).then((businesses) => {
+          setResponse(true)
+          setResults(businesses)
       })
-   }
+  }
 
      return( 
          <div className="App">
