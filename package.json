@@ -5,7 +5,8 @@
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.2.1",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "whatwg-url": "^8.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,9 +33,9 @@
     "@testing-library/dom": "^7.22.4",
     "@testing-library/react": "^9.5.0",
     "jest-dom": "^4.0.0",
-    "react": "^15.6.2",
+    "react": "^16.13.1",
     "react-addons-test-utils": "^15.6.2",
-    "react-dom": "^16.13.1",
+    "react-dom": "^15.6.2",
     "react-test-render": "^1.1.2",
     "typescript": "^4.0.2"
   }
