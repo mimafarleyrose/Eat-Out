@@ -12,10 +12,10 @@ const [searchQuery, setSearchQuery]=useState({
     location:'',
     sortBy:''
 })
-const [results, setResults]=useState([])
-const [response, setResponse]=useState([])
-const [searching, setSearching]=useState(false)
-const [validSearchQuery, setValidSearchQuery]=useState(false)
+const [results, setResults]=useState([]);
+const [response, setResponse]=useState([]);
+const [searching, setSearching]=useState(false);
+const [validSearchQuery, setValidSearchQuery]=useState(false);
 
 
   const searchYelp=( term , location , sortBy )=>{
