@@ -5,7 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.2.1",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^5.0.1",
     "whatwg-url": "^8.1.0"
   },
   "scripts": {
